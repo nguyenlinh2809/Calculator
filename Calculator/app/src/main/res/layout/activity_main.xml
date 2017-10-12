@@ -18,7 +18,7 @@
 
     </LinearLayout>
     <LinearLayout
-
+        android:gravity="center"
         android:background="#363535"
         android:weightSum="4"
         android:orientation="horizontal"
@@ -34,7 +34,7 @@
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -187,28 +187,28 @@
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="0.25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/"/>
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="0.25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="*"/>
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="0.25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"/>
             <Button
                 android:layout_margin="1dp"
-                android:background="#294d79"
+                android:background="#3b4551"
                 android:layout_weight="0.25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
