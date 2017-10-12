@@ -18,18 +18,19 @@
 
     </LinearLayout>
     <LinearLayout
+
         android:background="#363535"
-        android:gravity="center"
-        android:weightSum="6"
+        android:weightSum="4"
         android:orientation="horizontal"
         android:layout_weight="6"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <LinearLayout
+            android:gravity="center"
             android:layout_weight="1"
             android:weightSum="4"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
@@ -75,10 +76,11 @@
                 android:text="0"/>
         </LinearLayout>
         <LinearLayout
+            android:gravity="center"
             android:layout_weight="1"
             android:weightSum="4"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
@@ -127,10 +129,11 @@
                 android:text="00"/>
         </LinearLayout>
         <LinearLayout
+            android:gravity="center"
             android:layout_weight="1"
             android:weightSum="4"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
@@ -176,10 +179,11 @@
                 android:text="."/>
         </LinearLayout>
         <LinearLayout
+            android:gravity="center"
             android:layout_weight="1"
             android:weightSum="6"
             android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent">
             <Button
                 android:layout_margin="1dp"
