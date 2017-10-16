@@ -3,16 +3,24 @@ package com.example.linh0nguyen.calculator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.BaseInputConnection;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText edtKetqua;
+    ListView lvHistory;
+    ArrayList<String> listHistory;
+    ArrayAdapter<String> adapter;
     String result = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addControls() {
         int []idButton = {R.id.btn00, R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5, R.id.btn6, R.id.btn7,
-                R.id.btn8, R.id.btn9, R.id.btnCopy, R.id.btnAdd, R.id.btnSubtract, R.id.btnMultiple, R.id.btnDivide,
+                R.id.btn8, R.id.btn9, R.id.btnBack, R.id.btnAdd, R.id.btnSubtract, R.id.btnMultiple, R.id.btnDivide,
                 R.id.btnDot, R.id.btnDelete, R.id.btnNgoacPhai, R.id.btnNgoacTrai, R.id.btnEqual, R.id.btnPercent
 
         };
@@ -32,20 +40,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setOnClickListener(this);
         }
         edtKetqua = (EditText) findViewById(R.id.edtKetqua);
+        lvHistory = (ListView) findViewById(R.id.lvHistory);
+        listHistory = new ArrayList<String>();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listHistory);
+        lvHistory.setAdapter(adapter);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnEqual:
+
                 String[] s = xuliChuoi(result);
                 String[] a = convertToPostFix(s);
                 String kq = calculator(a);
                 edtKetqua.setText(result+" = "+kq);
+                if(listHistory.size()<=2){
+                    listHistory.add(result+" = "+kq);
+                    lvHistory.setSelection(adapter.getCount()-1);
+                    adapter.notifyDataSetChanged();
+                }else {
+                    listHistory.add(result+" = "+kq);
+                    listHistory.remove(0);
+                    adapter.notifyDataSetChanged();
+                }
+                result = kq;
                 break;
             case R.id.btnDelete:
                 result = "";
                 edtKetqua.setText("0");
+                listHistory.clear();
+                adapter.notifyDataSetChanged();
+                break;
+            case R.id.btnBack:
+                /*BaseInputConnection inputConnection = new BaseInputConnection(edtKetqua, true);
+                inputConnection.sendKeyEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_DEL));*/
                 break;
             default:
                 result += ((Button)v).getText().toString();
@@ -57,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public int getPriority(char c){
         if(c == '+' || c == '-'){
             return 1;
-        }else if(c == '*' || c == '/'){
+        }else if(c == '*' || c == '/' || c == '%'){
             return 2;
         }else return 0;
     }
